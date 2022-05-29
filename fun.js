@@ -30,4 +30,59 @@ function validateForm()
     } else {
         setError(emailsInput, 'Provide valid email address');
     }
+   //Message validation
+   if (messagesInput.value.trim() == '') {
+    setError(messagesInput, "Message cannot be blank");
 }
+else if (messagesInput.value.trim().length < 40) {
+    setError(messagesInput, "Message must be of minimum 40 characters long");
+}
+else {
+    setSuccess(messagesInput);
+}
+}
+
+// Setting the error function
+function setError(element, errorMessage) {
+const parent = element.parentElement;
+if (parent.classList.contains('success')) {
+    parent.classList.remove('success');
+}
+parent.classList.add('error');
+const paragraph = parent.querySelector('span');
+paragraph.textContent = errorMessage;
+}
+
+// Setting the success function
+function setSuccess(element) {
+const parent = element.parentElement;
+if (parent.classList.contains('error')) {
+    parent.classList.remove('error');
+}
+parent.classList.add('success');
+}
+
+//Function for Validating form on input before submitting
+isFormValid = () => {
+const inputContainers = form.querySelectorAll('.form-group');
+let result = true;
+inputContainers.forEach((container) => {
+    if (container.classList.contains('error')) {
+        result = false;
+    }
+});
+return result;
+}
+
+//Adding eventListener to form for submitting
+form.addEventListener('submit', (event) => {
+validateForm();
+console.log(isFormValid());
+if (isFormValid() == true) {
+    form.submit();
+    alert('You are being redirected');
+    window.open("https://lng-consultancy.com/", "_blank");
+} else {
+    event.preventDefault();
+}
+});
