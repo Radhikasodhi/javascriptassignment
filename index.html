@@ -210,19 +210,19 @@
           <div class="form-group">
             <label for="exampleInputEmail1" class="imp">Name</label>
             <input type="text" class="form-control"  placeholder="Please enter your name"
-              onKeyup="namevalidateForm()" id="username" name="username" autocomplete="off">
+               id="username" name="username" autocomplete="off" onKeyup="namevalidateForm()">
             <span></span>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="imp">Email address</label>
             <input type="email" class="form-control" id="email"
-              placeholder="Please enter your email" onKeyup="emailvalidateForm()" name="email" autocomplete="off">
+              placeholder="Please enter your email"  name="email" autocomplete="off" onkeyup="emailvalidateForm()">
             <span></span>
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1" class="imp">Message</label>
             <textarea class="form-control" rows="3" style="resize: none;" id="message" name="message"
-              onKeyup="messagevalidateForm()"></textarea>
+            onkeypress="messagevalidateForm()"  ></textarea>
             <span></span>
           </div>
           <button type="submit" class="btn btn-primary mb-3" id="submitbutton">Submit</button>

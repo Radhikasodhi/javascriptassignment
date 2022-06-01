@@ -78,7 +78,6 @@ function setSuccess(element) {
     parent.classList.add('success');
 }
 
-//Function for Validating form on input before submitting
 isFormValid = () => {
     const inputContainers = form.querySelectorAll('.form-group');
     let result = true;
